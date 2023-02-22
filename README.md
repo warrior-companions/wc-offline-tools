@@ -191,3 +191,16 @@ Container information:
 - GitHub: https://github.com/reuteras/container-attack-navigator
 - Docker: https://hub.docker.com/r/reuteras/container-attack-navigator
 
+
+### OpenVAS
+
+OpenVAS is a full-featured vulnerability scanner. The `immauss/openvas` container runs the Greenbone Vulnerability Manager.
+- Website: https://openvas.org/
+- Container used: `immauss/openvas`
+
+***IMPORTANT***:  Before starting the container, be sure to update the `PASSWORD` variable (in the `enviornment` section) within the `docker-compose` file for OpenVAS. The password stored in the publicly available compose file should not be used.
+
+Container information:
+- GitHub: https://github.com/immauss/openvas
+- Docker: https://hub.docker.com/r/immauss/openvas
+
