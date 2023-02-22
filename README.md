@@ -119,6 +119,19 @@ Container information:
 
 ```
 
+### CTFd
+
+CTFd is a Capture The Flag framework focusing on ease of use and customizability.
+- Website: https://ctfd.io/
+- Container used: `ctfd/ctfd:mark-3.3.0`
+
+***IMPORTANT***: We are using CTFd version 3.3.0 so we can export and import challenges. Newer versions of the CTFd container do not support the ability to import `.zip` files.
+
+Container information:
+- GitHub: http://github.com/CTFd/CTFd/
+- Docker: https://hub.docker.com/r/ctfd/ctfd
+
+
 ### CyberChef
 
 The Cyber Swiss Army Knife. CyberChef is a web app for encryption, encoding, compression and data analysis.
