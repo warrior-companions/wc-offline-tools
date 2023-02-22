@@ -23,29 +23,57 @@
     {
       "type": 1,
       "title": "Empire",
-      "network": "redcloud_default",
+      "network": "none",
       "platform": "linux",
       "description": "Pure Python & PowerShell post-exploitation",
       "interactive": true,
+      "command": "tini -- ttyd -p 7681 powershell-empire client",
       "name": "red_empire",
       "logo": "https://i.imgur.com/XvtOqFp.png",
-      "note": "Port 5555 opened for reverse callbacks",
-      "image": "empireproject/empire",
+      "note": "Port 1337 opened for reverse callbacks",
+      "image": "isaudits/empire",
       "restart_policy": "unless-stopped",
       "categories": [
         "offensive"
       ],
       "ports": [
-        "5555:5555/tcp"
+        "7681:7681"
       ],
-      "labels": [
+      "env": [
         {
-          "name": "traefik.frontend.rule",
-          "value": "PathPrefixStrip:/empire"
+          "name": "EMPIRE_LHOST",
+          "label": "EMPIRE_LHOST",
+          "description": "IP address of the host",
+          "default": "0.0.0.0",
+          "preset": false
         },
         {
-          "name": "traefik.port",
-          "value": "5555"
+          "name": "EMPIRE_REST_PORT",
+          "label": "EMPIRE_REST_PORT",
+          "description": "Default port for the Rest API.",
+          "default": "1337",
+          "preset": false
+        },
+        {
+          "name": "EMPIRE_SOCKET_PORT",
+          "label": "EMPIRE_SOCKET_PORT",
+          "description": "Default Empire server port.",
+          "default": "5000",
+          "preset": false
+        },
+        {
+          "name": "EMPIRE_USER",
+          "label": "EMPIRE_USER",
+          "description": "Username of the Empire user.",
+          "default": "empire",
+          "preset": false
+        },
+        {
+          "name": "EMPIRE_PASS",
+          "label": "EMPIRE_PASS",
+          "description": "Password used by the Empire user.",
+          "default": "Chang3ME!",
+          "preset": false
         }
       ]
     },
