@@ -17,6 +17,9 @@ The research toolset can be ran using the `docker-compose-research.yml` file. Be
 ### All tools
 You can run all of the tools using the `docker-compose-all.yml` file. Be sure to [setup offline-tools](#setup) before running docker compose.
 
+### Redteam tools
+You can run all of the tools using the `redteam-compose.yml` file. Be sure to [setup offline-tools](#setup) before running docker compose.
+
 ## Setup
 
 For our initial release of offline-tools, we are using `docker-compose` file(s) to run the different tools.  In order to use the `docker-compose` file, you will need to complete the following:
