@@ -4,17 +4,17 @@ This repo contains a collection of tools that can be self-hosted for offline use
 
 ## Tool sets
 
-### Research Toolset
-The research toolset contains the following tools:
+### Offline Toolset
+The primary offline toolset contains the following tools:
 - [CyberChef](#cyberchef)
 - [Draw IO](#draw-io)
 - [Heimdall](#heimdall)
 - [Kiwix](#kiwix)
 - [Mitre ATT&CK Navigator](#mitre-attck-navigator)
 
-The research toolset can be ran using the `docker-compose-research.yml` file. Be sure to [setup offline-tools](#setup) before running docker compose.
+The primary offline toolset can be ran using the `docker-compose.yml` file. Be sure to [setup offline-tools](#setup) before running docker compose.
 
-### All tools
+### All Offline Tools
 You can run all of the tools using the `docker-compose-all.yml` file. Be sure to [setup offline-tools](#setup) before running docker compose.
 
 ## Setup
@@ -30,22 +30,23 @@ For our initial release of offline-tools, we are using `docker-compose` file(s) 
     - This should be completed for each Docker image you do not want Docker to attempt to download
 6. Start the containers using the selected `docker-compose` file
     - Navigate to the `wc-offline-tools` directory
-    - Issue `docker-compose -f docker-compose-<selected_file>.yml up -d`
-    - Example running the [research toolset](#research-toolset) file:
+    - To use the [primary offline toolset](#offline-toolset), issue `docker compose up -d`
+    - To use a different toolset, issue `docker compose -f docker-compose-<selected_file>.yml up -d`
+    - Example running the [primary offline toolset](#offline-toolset) file:
         ```
-        docker-compose -f docker-compose-research.yml up -d
+        docker compose up -d
         ```
 
 
 ### Importing Docker Images
 
 If you already have Docker images stored as `.tar` files, you can import them using the [`docker load`](https://docs.docker.com/engine/reference/commandline/load/) command.
-- Example loading the [`immauss/openvas`](https://hub.docker.com/r/immauss/openvas) image from the `openvas.tar` file:
+- Example loading the [`mpepping/cyberchef`](https://hub.docker.com/r/mpepping/cyberchef/) image from the `cyberchef.tar` file:
     ```
-    docker load -i D:\path-to\docker-image-files\openvas.tar
+    docker load -i D:\path-to\docker-image-files\cyberchef.tar
     ```
 - Docker should respond with: 
-    > Loaded image: immauss/openvas:latest
+    > Loaded image: mpepping/cyberchef:latest
 
 
 ### Downloading Docker Images
