@@ -195,6 +195,8 @@ Container information:
 
 ### OpenVAS
 
+***Note***: The OpenVAS container has been removed from the `docker-compose-all-tools` file due to the amount of storage space required to build the container.  The OpenVAS container will be moved to the [wc-tools](https://github.com/warrior-companions/wc-tools) project in the future.
+
 OpenVAS is a full-featured vulnerability scanner. The `immauss/openvas` container runs the Greenbone Vulnerability Manager.
 - Website: https://openvas.org/
 - Container used: `immauss/openvas`
