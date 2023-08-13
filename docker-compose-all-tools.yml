@@ -12,6 +12,9 @@ services:
     ports:
       - 8080:80
     restart: unless-stopped
+    logging:
+      options:
+        max-size: 10m
 
 
   # Heimdall - Application Dashboard
@@ -27,6 +30,9 @@ services:
     volumes:
       - ./appdata/heimdall:/config
     restart: unless-stopped
+    logging:
+      options:
+        max-size: 10m
 
 
   # Kiwix - https://www.kiwix.org/
@@ -50,20 +56,9 @@ services:
     command: "*.zim"
     #command: "-M /library/ZIM/*"
     restart: unless-stopped
-
-
-  # CTFd - https://ctfd.io/
-  # Capture The Flag framework focusing on ease of use and customizability.
-  #### Container specific links
-  # GitHub: http://github.com/CTFd/CTFd/
-  # Container: https://hub.docker.com/r/ctfd/ctfd
-  # We are using version 3.3.0 so we can export and import challenges
-  ctfd:
-    image: ctfd/ctfd:mark-3.3.0
-    container_name: ctfd-330
-    ports:
-      - 8280:8000
-    restart: unless-stopped
+    logging:
+      options:
+        max-size: 10m
 
 
   # CyberChef - The Cyber Swiss Army Knife
@@ -78,6 +73,9 @@ services:
     ports:
       - 8380:8000
     restart: unless-stopped
+    logging:
+      options:
+        max-size: 10m
 
 
   # Draw IO - https://www.diagrams.net/
@@ -92,6 +90,26 @@ services:
       - 8480:8080
       - 8443:443
     restart: unless-stopped
+    logging:
+      options:
+        max-size: 10m
+
+
+  # CTFd - https://ctfd.io/
+  # Capture The Flag framework focusing on ease of use and customizability.
+  #### Container specific links
+  # GitHub: http://github.com/CTFd/CTFd/
+  # Container: https://hub.docker.com/r/ctfd/ctfd
+  # We are using version 3.3.0 so we can export and import challenges
+  ctfd:
+    image: ctfd/ctfd:mark-3.3.0
+    container_name: ctfd-330
+    ports:
+      - 8280:8000
+    restart: unless-stopped
+    logging:
+      options:
+        max-size: 10m
 
 
   # Speedtest - https://librespeed.org/
@@ -108,19 +126,7 @@ services:
     ports:
       - 8580:80
     restart: unless-stopped
-
-
-  # OpenVAS - A full-featured vulnerability scanner.
-  # https://openvas.org/
-  #### Container specific links
-  # GitHub: https://github.com/immauss/openvas
-  # Container: https://hub.docker.com/r/immauss/openvas
-  openvas:
-    image: immauss/openvas
-    container_name: openvas
-    environment:
-      - PASSWORD="put_a_better_password_here"
-    ports:
-      - 9392:9392
-    restart: unless-stopped
+    logging:
+      options:
+        max-size: 10m
 

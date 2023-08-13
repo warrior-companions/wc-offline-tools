@@ -4,17 +4,17 @@ This repo contains a collection of tools that can be self-hosted for offline use
 
 ## Tool sets
 
-### Research Toolset
-The research toolset contains the following tools:
+### Offline Toolset
+The primary offline toolset contains the following tools:
 - [CyberChef](#cyberchef)
 - [Draw IO](#draw-io)
 - [Heimdall](#heimdall)
 - [Kiwix](#kiwix)
 - [Mitre ATT&CK Navigator](#mitre-attck-navigator)
 
-The research toolset can be ran using the `docker-compose-research.yml` file. Be sure to [setup offline-tools](#setup) before running docker compose.
+The primary offline toolset can be ran using the `docker-compose.yml` file. Be sure to [setup offline-tools](#setup) before running docker compose.
 
-### All tools
+### All Offline Tools
 You can run all of the tools using the `docker-compose-all.yml` file. Be sure to [setup offline-tools](#setup) before running docker compose.
 
 ## Setup
@@ -30,22 +30,23 @@ For our initial release of offline-tools, we are using `docker-compose` file(s) 
     - This should be completed for each Docker image you do not want Docker to attempt to download
 6. Start the containers using the selected `docker-compose` file
     - Navigate to the `wc-offline-tools` directory
-    - Issue `docker-compose -f docker-compose-<selected_file>.yml up -d`
-    - Example running the [research toolset](#research-toolset) file:
+    - To use the [primary offline toolset](#offline-toolset), issue `docker compose up -d`
+    - To use a different toolset, issue `docker compose -f docker-compose-<selected_file>.yml up -d`
+    - Example running the [primary offline toolset](#offline-toolset) file:
         ```
-        docker-compose -f docker-compose-research.yml up -d
+        docker compose up -d
         ```
 
 
 ### Importing Docker Images
 
 If you already have Docker images stored as `.tar` files, you can import them using the [`docker load`](https://docs.docker.com/engine/reference/commandline/load/) command.
-- Example loading the [`immauss/openvas`](https://hub.docker.com/r/immauss/openvas) image from the `openvas.tar` file:
+- Example loading the [`mpepping/cyberchef`](https://hub.docker.com/r/mpepping/cyberchef/) image from the `cyberchef.tar` file:
     ```
-    docker load -i D:\path-to\docker-image-files\openvas.tar
+    docker load -i D:\path-to\docker-image-files\cyberchef.tar
     ```
 - Docker should respond with: 
-    > Loaded image: immauss/openvas:latest
+    > Loaded image: mpepping/cyberchef:latest
 
 
 ### Downloading Docker Images
@@ -172,9 +173,10 @@ Container information:
 - Website: https://www.kiwix.org/
 - Container used: `kiwix/kiwix-serve:3.4.0`
 
-Content can be downloaded from the [Kiwix library](https://library.kiwix.org/) (URL: https://library.kiwix.org/), as a `.zim` file then loaded into the Kiwix server.
+Content can be downloaded from the [Kiwix library](https://library.kiwix.org/) (URL: https://library.kiwix.org/), as a `.zim` file then loaded into the Kiwix server.  There are [examples in the `zim-files` directory](./zim-files/README.md) if you need to download them to run Kiwix.
 
 ***IMPORTANT***: The `kiwix-serve` container will not run without any `.zim` files stored in the `./zim-files/` directory. At least one `.zim` file must exist in the `./zim-files/` directory.
+- See the [examples in the `zim-files` directory](./zim-files/README.md) if you need to download them to run Kiwix.
 
 Container information:
 - GitHub: https://github.com/kiwix/kiwix-tools
@@ -193,6 +195,8 @@ Container information:
 
 
 ### OpenVAS
+
+***Note***: The OpenVAS container has been removed from the `docker-compose-all-tools` file due to the amount of storage space required to build the container.  The OpenVAS container will be moved to the [wc-tools](https://github.com/warrior-companions/wc-tools) project in the future.
 
 OpenVAS is a full-featured vulnerability scanner. The `immauss/openvas` container runs the Greenbone Vulnerability Manager.
 - Website: https://openvas.org/
