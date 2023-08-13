@@ -36,6 +36,31 @@ You can combine the examples above to get a list of English zim files, using Pow
 $fileList | Select-String -NoEmphasis -Pattern "_en_" | % {[regex]::Match($_, '(\S+)(_\d{4}-\d{2}\.zim$)').Groups[1].Value} | Get-Unique
 ```
 
+### Getting the URLs
+
+If you want to build a list of the files you want to download, using PowerShell, you can use the following example
+- In the event the `https://` is returned in the request, the regex is `.*<[a]\shref=\"(https:\/\/.*.zim)\">.*`
+- The regex with the file name only is: `.*<[a]\shref=\"(.*.zim)\">(.*)<\/a>(.*)`
+
+Get the files with the full URL
+```
+$URL="https://download.kiwix.org/zim/other/"
+$urlObject=Invoke-WebRequest -URI $URL -UseBasicParsing
+$urlContent=$urlObject.Content
+# prepend the URL to the file name
+$urlContent | % {$URL + [regex]::Match($_, '.*<[a]\shref=\"(.*.zim)\">(.*)<\/a>(.*)').Groups[1].Value}
+```
+
+If you want to get the file names only (without prepending the URL) with the `$urlContent` object, issue this command:
+```
+$urlContent | % {[regex]::Match($_, '.*<[a]\shref=\"(.*.zim)\">(.*)<\/a>(.*)').Groups[1].Value}
+```
+
+Then you can save them to an object with:
+```
+$zimURLs=$urlContent | % {$URL + [regex]::Match($_, '.*<[a]\shref=\"(.*.zim)\">(.*)<\/a>(.*)').Groups[1].Value}
+```
+
 ### Examples using `wget` to pull files
 
 Here are some examples using the `wget` command to pull files from [https://download.kiwix.org/zim/](https://download.kiwix.org/zim/):
