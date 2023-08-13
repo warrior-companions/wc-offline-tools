@@ -173,9 +173,10 @@ Container information:
 - Website: https://www.kiwix.org/
 - Container used: `kiwix/kiwix-serve:3.4.0`
 
-Content can be downloaded from the [Kiwix library](https://library.kiwix.org/) (URL: https://library.kiwix.org/), as a `.zim` file then loaded into the Kiwix server.
+Content can be downloaded from the [Kiwix library](https://library.kiwix.org/) (URL: https://library.kiwix.org/), as a `.zim` file then loaded into the Kiwix server.  There are [examples in the `zim-files` directory](./zim-files/README.md) if you need to download them to run Kiwix.
 
 ***IMPORTANT***: The `kiwix-serve` container will not run without any `.zim` files stored in the `./zim-files/` directory. At least one `.zim` file must exist in the `./zim-files/` directory.
+- See the [examples in the `zim-files` directory](./zim-files/README.md) if you need to download them to run Kiwix.
 
 Container information:
 - GitHub: https://github.com/kiwix/kiwix-tools
