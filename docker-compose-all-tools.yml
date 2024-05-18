@@ -130,3 +130,43 @@ services:
       options:
         max-size: 10m
 
+  # Excalidraw - https://excalidraw.com/
+  # Virtual whiteboard for sketching hand-drawn like diagrams.
+  #### Container specific links
+  # GitHub: https://github.com/excalidraw/excalidraw
+  # Container: https://hub.docker.com/r/excalidraw/excalidraw
+  excalidraw:
+    # so far, excalidraw also requires excalidraw-room
+    # https://github.com/excalidraw/excalidraw/issues/5188#issuecomment-1156091545
+    image: excalidraw/excalidraw
+    container_name: excalidraw
+    ports:
+      - "8680:80"
+    restart: on-failure
+    stdin_open: true
+    healthcheck:
+      disable: true
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./excludeme/excalidraw/:/opt/node_app/app:delegated
+      - ./excludeme/excalidraw/package.json:/opt/node_app/package.json
+      - ./excludeme/excalidraw/yarn.lock:/opt/node_app/yarn.lock
+      - excalidraw_notused:/opt/node_app/app/node_modules
+
+  # Excalidraw - https://excalidraw.com/
+  # Virtual whiteboard for sketching hand-drawn like diagrams.
+  #### Container specific links
+  # GitHub: https://github.com/excalidraw/excalidraw
+  # Container: https://hub.docker.com/r/excalidraw/excalidraw-room
+  excalidraw-room:
+    # https://github.com/excalidraw/excalidraw/issues/5188#issuecomment-1156091545
+    image: excalidraw/excalidraw-room
+    container_name: excalidraw-room
+    stdin_open: true
+    tty: true
+    ports:
+      - 5000:80
+
+volumes:
+  excalidraw_notused:
