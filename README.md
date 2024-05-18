@@ -34,7 +34,7 @@ For our initial release of offline-tools, we are using `docker-compose` file(s) 
     - To use the [primary offline toolset](#offline-toolset), issue `docker compose up -d`
     - To use a different toolset, issue `docker compose -f docker-compose-<selected_file>.yml up -d`
     - Example running the [primary offline toolset](#offline-toolset) file:
-        ```
+        ```bash
         docker compose up -d
         ```
 
@@ -54,7 +54,7 @@ docker-compose -f .\docker-compose-all-tools.yml up -d drawio
 
 If you already have Docker images stored as `.tar` files, you can import them using the [`docker load`](https://docs.docker.com/engine/reference/commandline/load/) command.
 - Example loading the [`mpepping/cyberchef`](https://hub.docker.com/r/mpepping/cyberchef/) image from the `cyberchef.tar` file:
-    ```
+    ```bash
     docker load -i D:\path-to\docker-image-files\cyberchef.tar
     ```
 - Docker should respond with: 
@@ -65,13 +65,13 @@ If you already have Docker images stored as `.tar` files, you can import them us
 
 If you have not downloaded any Docker images, you can download them using the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command.
 - Example downloading the [`mpepping/cyberchef`](https://hub.docker.com/r/mpepping/cyberchef/) image:
-    ```
+    ```bash
     docker pull mpepping/cyberchef
     ```
 
 You can also pull [`tagged images`](https://www.geeksforgeeks.org/docker-using-image-tags/) by including the `tag` after the image name.
 - Example downloading the [`kiwix/kiwix-serve:3.4.0`](https://hub.docker.com/layers/kiwix/kiwix-serve/3.4.0/images/sha256-734cbd70a982102b7e5403d8d08f37201360af88ebd9ea85ee82e2ce2e575a6b?context=explore) image:
-    ```
+    ```bash
     docker pull kiwix/kiwix-serve:3.4.0
     ```
 
@@ -80,13 +80,13 @@ You can also pull [`tagged images`](https://www.geeksforgeeks.org/docker-using-i
 
 If you find you want to export a downloaded image, you can use the [`docker save`](https://docs.docker.com/engine/reference/commandline/save/) command.
 - Example saving the `mpepping/cyberchef` image to the `cyberchef.tar` file:
-    ```
+    ```bash
     docker save -o D:\path-to\docker-image-files\cyberchef.tar mpepping/cyberchef
     ```
 
 You can also save [`tagged images`](https://www.geeksforgeeks.org/docker-using-image-tags/) by including the `tag` after the image name.
 - Example saving the `kiwix/kiwix-serve:3.4.0` image to the `kiwix-serve-3.4.0.tar` file:
-    ```
+    ```bash
     docker save -o D:\path-to\docker-image-files\kiwix-serve-3.4.0.tar kiwix/kiwix-serve:3.4.0
     ```
 
