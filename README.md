@@ -39,6 +39,17 @@ For our initial release of offline-tools, we are using `docker-compose` file(s) 
         ```
 
 
+### Running an individual container
+
+Follow the steps in the [setup section](#setup) but specify the name of the **service** you want to run when issuing `docker compose`
+
+Example running **drawio**:
+
+```bash
+docker-compose -f .\docker-compose-all-tools.yml up -d drawio
+```
+
+
 ### Importing Docker Images
 
 If you already have Docker images stored as `.tar` files, you can import them using the [`docker load`](https://docs.docker.com/engine/reference/commandline/load/) command.
