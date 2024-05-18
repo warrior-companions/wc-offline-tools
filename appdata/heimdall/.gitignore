@@ -1,0 +1,9 @@
+log/**
+keys/**
+nginx/**
+php/**
+**/logs/**
+*.env
+*.migrations
+!www/app.sqlite
+www/**
