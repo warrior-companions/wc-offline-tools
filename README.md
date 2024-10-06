@@ -8,6 +8,7 @@ The offline toolset contains containers of the following applications:
 - [Draw IO](#draw-io)
 - [Heimdall](#heimdall)
 - [Kiwix](#kiwix)
+- [Mermaid Live Editor](#mermaid-live-editor)
 - [Mitre ATT&CK Navigator](#mitre-attck-navigator)
 
 The primary offline toolset can be ran using the `docker-compose.yml` file. Be sure to [setup offline-tools](#setup) before running docker compose.
@@ -31,16 +32,27 @@ For our initial release of offline-tools, we are using `docker-compose` file(s) 
     - To use the [primary offline toolset](#offline-toolset), issue `docker compose up -d`
     - To use a different toolset, issue `docker compose -f docker-compose-<selected_file>.yml up -d`
     - Example running the [primary offline toolset](#offline-toolset) file:
-        ```
+        ```bash
         docker compose up -d
         ```
+
+
+### Running an individual container
+
+Follow the steps in the [setup section](#setup) but specify the name of the **service** you want to run when issuing `docker compose`
+
+Example running **drawio**:
+
+```bash
+docker-compose -f .\docker-compose-all-tools.yml up -d drawio
+```
 
 
 ### Importing Docker Images
 
 If you already have Docker images stored as `.tar` files, you can import them using the [`docker load`](https://docs.docker.com/engine/reference/commandline/load/) command.
 - Example loading the [`mpepping/cyberchef`](https://hub.docker.com/r/mpepping/cyberchef/) image from the `cyberchef.tar` file:
-    ```
+    ```bash
     docker load -i D:\path-to\docker-image-files\cyberchef.tar
     ```
 - Docker should respond with: 
@@ -51,13 +63,13 @@ If you already have Docker images stored as `.tar` files, you can import them us
 
 If you have not downloaded any Docker images, you can download them using the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command.
 - Example downloading the [`mpepping/cyberchef`](https://hub.docker.com/r/mpepping/cyberchef/) image:
-    ```
+    ```bash
     docker pull mpepping/cyberchef
     ```
 
 You can also pull [`tagged images`](https://www.geeksforgeeks.org/docker-using-image-tags/) by including the `tag` after the image name.
 - Example downloading the [`kiwix/kiwix-serve:3.4.0`](https://hub.docker.com/layers/kiwix/kiwix-serve/3.4.0/images/sha256-734cbd70a982102b7e5403d8d08f37201360af88ebd9ea85ee82e2ce2e575a6b?context=explore) image:
-    ```
+    ```bash
     docker pull kiwix/kiwix-serve:3.4.0
     ```
 
@@ -66,13 +78,13 @@ You can also pull [`tagged images`](https://www.geeksforgeeks.org/docker-using-i
 
 If you find you want to export a downloaded image, you can use the [`docker save`](https://docs.docker.com/engine/reference/commandline/save/) command.
 - Example saving the `mpepping/cyberchef` image to the `cyberchef.tar` file:
-    ```
+    ```bash
     docker save -o D:\path-to\docker-image-files\cyberchef.tar mpepping/cyberchef
     ```
 
 You can also save [`tagged images`](https://www.geeksforgeeks.org/docker-using-image-tags/) by including the `tag` after the image name.
 - Example saving the `kiwix/kiwix-serve:3.4.0` image to the `kiwix-serve-3.4.0.tar` file:
-    ```
+    ```bash
     docker save -o D:\path-to\docker-image-files\kiwix-serve-3.4.0.tar kiwix/kiwix-serve:3.4.0
     ```
 
@@ -181,6 +193,17 @@ The [ATT&CK Navigator](https://mitre-attack.github.io/attack-navigator/) is a we
 Container information:
 - GitHub: https://github.com/reuteras/container-attack-navigator
 - Docker: https://hub.docker.com/r/reuteras/container-attack-navigator
+
+
+### Mermaid Live Editor
+
+The [Mermaid Live Editor](https://mermaid.live/) allows you to Edit, preview and share mermaid charts/diagrams.
+- Website: https://mermaid.live/
+- Container used: `ghcr.io/mermaid-js/mermaid-live-editor`
+
+Container information:
+- GitHub: https://github.com/mermaid-js/mermaid-live-editor
+- Docker: https://github.com/mermaid-js/mermaid-live-editor/pkgs/container/mermaid-live-editor
 
 
 ### New Tool Template
