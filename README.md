@@ -206,6 +206,25 @@ Container information:
 - Docker: https://github.com/mermaid-js/mermaid-live-editor/pkgs/container/mermaid-live-editor
 
 
+### Excalidraw
+
+Virtual whiteboard for sketching hand-drawn like diagrams.
+- Website: https://excalidraw.com/
+- Container used: `excalidraw/excalidraw`
+
+***IMPORTANT***: Running `excalidraw` also requires `excalidraw-room`, see https://github.com/excalidraw/excalidraw/issues/5188#issuecomment-1156091545
+
+Container information for `excalidraw`:
+- GitHub: https://github.com/excalidraw/excalidraw
+- Docker: https://hub.docker.com/r/excalidraw/excalidraw
+
+#### Excalidraw Room
+
+Container information for `excalidraw-room`:
+- GitHub: https://github.com/excalidraw/excalidraw
+- Docker: https://hub.docker.com/r/excalidraw/excalidraw-room
+
+
 ### New Tool Template
 
 This section contains the current template for adding a new tool to the Offline Tools project.
