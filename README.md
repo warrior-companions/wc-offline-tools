@@ -1,11 +1,9 @@
 # Offline Tools
 
-This repo contains a collection of tools that can be self-hosted for offline use.  These tools have been tested on Docker Desktop for Windows, using Linux containers.
+This repo contains a collection of tools that can be self-hosted for offline use, assuming you are able to [download](#downloading-docker-images) (using `docker pull`) or [import](#importing-docker-images) (using `docker load`) the container image.  These tools have been tested on Docker Desktop for Windows, using Linux containers.
 
-## Tool sets
-
-### Offline Toolset
-The primary offline toolset contains the following tools:
+## Offline Toolset
+The offline toolset contains containers of the following applications:
 - [CyberChef](#cyberchef)
 - [Draw IO](#draw-io)
 - [Heimdall](#heimdall)
@@ -116,21 +114,12 @@ Text from [stack overflow](https://stackoverflow.com/questions/36925261/what-is-
 
 ## Tools
 
-This section needs to be completed.
-```
-### Tool Template
-
-This section needs to be completed, including a description of the tool.
-- Website: 
-- Container used: ``
-
-***IMPORTANT***:
-
-Container information:
-- GitHub: 
-- Docker: 
-
-```
+The following tools are part of the Offline Tools project:
+- [CyberChef](#cyberchef)
+- [Draw IO](#draw-io)
+- [Heimdall](#heimdall)
+- [Kiwix](#kiwix)
+- [Mitre ATT&CK Navigator](#mitre-attck-navigator)
 
 ### CTFd
 
@@ -217,17 +206,20 @@ Container information:
 - Docker: https://github.com/mermaid-js/mermaid-live-editor/pkgs/container/mermaid-live-editor
 
 
-### OpenVAS
+### New Tool Template
 
-***Note***: The OpenVAS container has been removed from the `docker-compose-all-tools` file due to the amount of storage space required to build the container.  The OpenVAS container will be moved to the [wc-tools](https://github.com/warrior-companions/wc-tools) project in the future.
+This section contains the current template for adding a new tool to the Offline Tools project.
+```
+### Tool Template
 
-OpenVAS is a full-featured vulnerability scanner. The `immauss/openvas` container runs the Greenbone Vulnerability Manager.
-- Website: https://openvas.org/
-- Container used: `immauss/openvas`
+This section needs to be completed, including a description of the tool. The section should include information about what this tool does and links to the source code and container.
+- Website: 
+- Container used: ``
 
-***IMPORTANT***:  Before starting the container, be sure to update the `PASSWORD` variable (in the `enviornment` section) within the `docker-compose` file for OpenVAS. The password stored in the publicly available compose file should not be used.
+***IMPORTANT***:
 
 Container information:
-- GitHub: https://github.com/immauss/openvas
-- Docker: https://hub.docker.com/r/immauss/openvas
+- GitHub: 
+- Docker: 
 
+```
