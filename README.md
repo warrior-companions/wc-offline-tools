@@ -10,6 +10,7 @@ The primary offline toolset contains the following tools:
 - [Draw IO](#draw-io)
 - [Heimdall](#heimdall)
 - [Kiwix](#kiwix)
+- [Mermaid Live Editor](#mermaid-live-editor)
 - [Mitre ATT&CK Navigator](#mitre-attck-navigator)
 
 The primary offline toolset can be ran using the `docker-compose.yml` file. Be sure to [setup offline-tools](#setup) before running docker compose.
@@ -192,6 +193,17 @@ The [ATT&CK Navigator](https://mitre-attack.github.io/attack-navigator/) is a we
 Container information:
 - GitHub: https://github.com/reuteras/container-attack-navigator
 - Docker: https://hub.docker.com/r/reuteras/container-attack-navigator
+
+
+### Mermaid Live Editor
+
+The [Mermaid Live Editor](https://mermaid.live/) allows you to Edit, preview and share mermaid charts/diagrams.
+- Website: https://mermaid.live/
+- Container used: `ghcr.io/mermaid-js/mermaid-live-editor`
+
+Container information:
+- GitHub: https://github.com/mermaid-js/mermaid-live-editor
+- Docker: https://github.com/mermaid-js/mermaid-live-editor/pkgs/container/mermaid-live-editor
 
 
 ### OpenVAS
