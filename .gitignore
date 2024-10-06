@@ -1,2 +1,4 @@
-#
-excludeme/**
+# specific directories and files in 'appdata/excalidraw/'
+appdata/excalidraw/app/**
+appdata/excalidraw/package.json
+appdata/excalidraw/yarn.lock

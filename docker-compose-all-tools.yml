@@ -166,9 +166,9 @@ services:
     environment:
       - NODE_ENV=development
     volumes:
-      - ./excludeme/excalidraw/:/opt/node_app/app:delegated
-      - ./excludeme/excalidraw/package.json:/opt/node_app/package.json
-      - ./excludeme/excalidraw/yarn.lock:/opt/node_app/yarn.lock
+      - ./appdata/excalidraw/app:/opt/node_app/app:delegated
+      - ./appdata/excalidraw/package.json:/opt/node_app/package.json
+      - ./appdata/excalidraw/yarn.lock:/opt/node_app/yarn.lock
       - excalidraw_notused:/opt/node_app/app/node_modules
 
   # Excalidraw - https://excalidraw.com/
