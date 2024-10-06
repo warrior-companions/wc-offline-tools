@@ -94,3 +94,19 @@ services:
       options:
         max-size: 10m
 
+
+  # Mermaid Live Editor - https://mermaid.live/
+  # Edit, preview and share mermaid charts/diagrams. New implementation of the live editor.
+  #### Container specific links
+  # GitHub: https://github.com/mermaid-js/mermaid-live-editor
+  # Container: https://github.com/mermaid-js/mermaid-live-editor/pkgs/container/mermaid-live-editor
+  mermaid-editor:
+    image: ghcr.io/mermaid-js/mermaid-live-editor
+    container_name: mermaid-live-editor
+    platform: linux/amd64
+    ports:
+      - 8780:8080
+    logging:
+      options:
+        max-size: 10m
+

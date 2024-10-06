@@ -1,15 +1,14 @@
 # Offline Tools
 
-This repo contains a collection of tools that can be self-hosted for offline use.  These tools have been tested on Docker Desktop for Windows, using Linux containers.
+This repo contains a collection of tools that can be self-hosted for offline use, assuming you are able to [download](#downloading-docker-images) (using `docker pull`) or [import](#importing-docker-images) (using `docker load`) the container image.  These tools have been tested on Docker Desktop for Windows, using Linux containers.
 
-## Tool sets
-
-### Offline Toolset
-The primary offline toolset contains the following tools:
+## Offline Toolset
+The offline toolset contains containers of the following applications:
 - [CyberChef](#cyberchef)
 - [Draw IO](#draw-io)
 - [Heimdall](#heimdall)
 - [Kiwix](#kiwix)
+- [Mermaid Live Editor](#mermaid-live-editor)
 - [Mitre ATT&CK Navigator](#mitre-attck-navigator)
 
 The primary offline toolset can be ran using the `docker-compose.yml` file. Be sure to [setup offline-tools](#setup) before running docker compose.
@@ -33,16 +32,27 @@ For our initial release of offline-tools, we are using `docker-compose` file(s) 
     - To use the [primary offline toolset](#offline-toolset), issue `docker compose up -d`
     - To use a different toolset, issue `docker compose -f docker-compose-<selected_file>.yml up -d`
     - Example running the [primary offline toolset](#offline-toolset) file:
-        ```
+        ```bash
         docker compose up -d
         ```
+
+
+### Running an individual container
+
+Follow the steps in the [setup section](#setup) but specify the name of the **service** you want to run when issuing `docker compose`
+
+Example running **drawio**:
+
+```bash
+docker-compose -f .\docker-compose-all-tools.yml up -d drawio
+```
 
 
 ### Importing Docker Images
 
 If you already have Docker images stored as `.tar` files, you can import them using the [`docker load`](https://docs.docker.com/engine/reference/commandline/load/) command.
 - Example loading the [`mpepping/cyberchef`](https://hub.docker.com/r/mpepping/cyberchef/) image from the `cyberchef.tar` file:
-    ```
+    ```bash
     docker load -i D:\path-to\docker-image-files\cyberchef.tar
     ```
 - Docker should respond with: 
@@ -53,13 +63,13 @@ If you already have Docker images stored as `.tar` files, you can import them us
 
 If you have not downloaded any Docker images, you can download them using the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command.
 - Example downloading the [`mpepping/cyberchef`](https://hub.docker.com/r/mpepping/cyberchef/) image:
-    ```
+    ```bash
     docker pull mpepping/cyberchef
     ```
 
 You can also pull [`tagged images`](https://www.geeksforgeeks.org/docker-using-image-tags/) by including the `tag` after the image name.
 - Example downloading the [`kiwix/kiwix-serve:3.4.0`](https://hub.docker.com/layers/kiwix/kiwix-serve/3.4.0/images/sha256-734cbd70a982102b7e5403d8d08f37201360af88ebd9ea85ee82e2ce2e575a6b?context=explore) image:
-    ```
+    ```bash
     docker pull kiwix/kiwix-serve:3.4.0
     ```
 
@@ -68,13 +78,13 @@ You can also pull [`tagged images`](https://www.geeksforgeeks.org/docker-using-i
 
 If you find you want to export a downloaded image, you can use the [`docker save`](https://docs.docker.com/engine/reference/commandline/save/) command.
 - Example saving the `mpepping/cyberchef` image to the `cyberchef.tar` file:
-    ```
+    ```bash
     docker save -o D:\path-to\docker-image-files\cyberchef.tar mpepping/cyberchef
     ```
 
 You can also save [`tagged images`](https://www.geeksforgeeks.org/docker-using-image-tags/) by including the `tag` after the image name.
 - Example saving the `kiwix/kiwix-serve:3.4.0` image to the `kiwix-serve-3.4.0.tar` file:
-    ```
+    ```bash
     docker save -o D:\path-to\docker-image-files\kiwix-serve-3.4.0.tar kiwix/kiwix-serve:3.4.0
     ```
 
@@ -104,21 +114,12 @@ Text from [stack overflow](https://stackoverflow.com/questions/36925261/what-is-
 
 ## Tools
 
-This section needs to be completed.
-```
-### Tool Template
-
-This section needs to be completed, including a description of the tool.
-- Website: 
-- Container used: ``
-
-***IMPORTANT***:
-
-Container information:
-- GitHub: 
-- Docker: 
-
-```
+The following tools are part of the Offline Tools project:
+- [CyberChef](#cyberchef)
+- [Draw IO](#draw-io)
+- [Heimdall](#heimdall)
+- [Kiwix](#kiwix)
+- [Mitre ATT&CK Navigator](#mitre-attck-navigator)
 
 ### CTFd
 
@@ -194,17 +195,31 @@ Container information:
 - Docker: https://hub.docker.com/r/reuteras/container-attack-navigator
 
 
-### OpenVAS
+### Mermaid Live Editor
 
-***Note***: The OpenVAS container has been removed from the `docker-compose-all-tools` file due to the amount of storage space required to build the container.  The OpenVAS container will be moved to the [wc-tools](https://github.com/warrior-companions/wc-tools) project in the future.
-
-OpenVAS is a full-featured vulnerability scanner. The `immauss/openvas` container runs the Greenbone Vulnerability Manager.
-- Website: https://openvas.org/
-- Container used: `immauss/openvas`
-
-***IMPORTANT***:  Before starting the container, be sure to update the `PASSWORD` variable (in the `enviornment` section) within the `docker-compose` file for OpenVAS. The password stored in the publicly available compose file should not be used.
+The [Mermaid Live Editor](https://mermaid.live/) allows you to Edit, preview and share mermaid charts/diagrams.
+- Website: https://mermaid.live/
+- Container used: `ghcr.io/mermaid-js/mermaid-live-editor`
 
 Container information:
-- GitHub: https://github.com/immauss/openvas
-- Docker: https://hub.docker.com/r/immauss/openvas
+- GitHub: https://github.com/mermaid-js/mermaid-live-editor
+- Docker: https://github.com/mermaid-js/mermaid-live-editor/pkgs/container/mermaid-live-editor
 
+
+### New Tool Template
+
+This section contains the current template for adding a new tool to the Offline Tools project.
+```
+### Tool Template
+
+This section needs to be completed, including a description of the tool. The section should include information about what this tool does and links to the source code and container.
+- Website: 
+- Container used: ``
+
+***IMPORTANT***:
+
+Container information:
+- GitHub: 
+- Docker: 
+
+```
